@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cookie-signature": "^1.1.0",
+    "fastify": "^3.7.0",
+    "fastify-cookie": "^4.1.0",
+    "fastify-cors": "^4.1.0",
+    "fastify-static": "^3.3.0",
+    "fs-extra": "^9.0.1",
+    "lodash": "^4.17.20",
+    "pino": "^6.7.0",
+    "pino-pretty": "^4.3.0",
+    "promise-parallel-throttle": "^3.3.0",
+    "sqlite3": "^5.0.0",
+    "ts-keycode-enum": "^1.0.6",
+    "typeorm": "^0.2.29",
+    "uuid": "^8.3.1",
+    "ws": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "3",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "typescript": "^3.9.6"
+  },
+  "name": "battletris",
+  "scripts": {
+    "build": "rm -rf ./dist/node_modules && rm -rf ./dist/src && tsc -p tsconfig.json",
+    "debug": "yarn build && node --inspect dist/src/index.js",
+    "lint": "eslint src",
+    "postinstall": "cd ../shared && yarn link && cd ../backend && yarn link @battletris/shared",
+    "start": "yarn build && node dist/src/index.js"
+  }
+}
